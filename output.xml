@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-28T11:29:25.710026" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/SWT-Assignment5/test.robot">
+<test id="s1-t1" name="Verify Welcome Message" line="8">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-28T11:29:25.807613" level="INFO">Opening browser 'Chrome' to base url 'https://blazedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-28T11:29:25.807470" elapsed="3.049364"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Welcome to the Simple Travel Agency!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-28T11:29:28.857225" elapsed="0.010887"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-28T11:29:28.868420" elapsed="0.089008"/>
+</kw>
+<status status="PASS" start="2024-09-28T11:29:25.806872" elapsed="3.150659"/>
+</test>
+<status status="PASS" start="2024-09-28T11:29:25.711072" elapsed="3.246784"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
