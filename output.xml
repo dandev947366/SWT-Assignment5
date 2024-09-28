@@ -1,26 +1,345 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-28T11:29:25.710026" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-28T12:13:22.528746" rpa="false" schemaversion="5">
 <suite id="s1" name="Test" source="/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/SWT-Assignment5/test.robot">
-<test id="s1-t1" name="Verify Welcome Message" line="8">
+<test id="s1-t1" name="Verify City Selection and Find Flights Button" line="25">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-09-28T11:29:25.807613" level="INFO">Opening browser 'Chrome' to base url 'https://blazedemo.com/'.</msg>
+<msg time="2024-09-28T12:13:22.622108" level="INFO">Opening browser 'Chrome' to base url 'https://blazedemo.com/'.</msg>
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-09-28T11:29:25.807470" elapsed="3.049364"/>
+<status status="PASS" start="2024-09-28T12:13:22.621974" elapsed="4.355847"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:28.979976" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:26.978292" elapsed="2.001785"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Welcome to the Simple Travel Agency!</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-09-28T11:29:28.857225" elapsed="0.010887"/>
+<status status="PASS" start="2024-09-28T12:13:28.980270" elapsed="0.007048"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:30.987824" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:28.987456" elapsed="2.000725"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:30.989887" level="INFO">Selecting options from selection list 'xpath=/html/body/div[3]/form/select[@name='fromPort']' by value Boston.</msg>
+<arg>xpath=${DEPARTURE_XPATH}</arg>
+<arg>${FROM_CITY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-09-28T12:13:30.988680" elapsed="0.052382"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:33.042924" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:31.041251" elapsed="2.001907"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:33.044320" level="INFO">Selecting options from selection list 'xpath=/html/body/div[3]/form/select[@name='toPort']' by value Cairo.</msg>
+<arg>xpath=${DESTINATION_XPATH}</arg>
+<arg>${TO_CITY}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-09-28T12:13:33.043616" elapsed="0.048096"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:35.093881" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:33.091918" elapsed="2.002080"/>
+</kw>
+<kw name="Get Selected List Value" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:35.123452" level="INFO">${selected_from_city} = Boston</msg>
+<var>${selected_from_city}</var>
+<arg>xpath=${DEPARTURE_XPATH}</arg>
+<doc>Returns the value of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:13:35.094192" elapsed="0.029298"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:37.124289" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:35.123724" elapsed="2.001183"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${selected_from_city}</arg>
+<arg>${FROM_CITY}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-09-28T12:13:37.125960" elapsed="0.000977"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:39.129852" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:37.127267" elapsed="2.002857"/>
+</kw>
+<kw name="Get Selected List Value" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:39.184811" level="INFO">${selected_to_city} = Cairo</msg>
+<var>${selected_to_city}</var>
+<arg>xpath=${DESTINATION_XPATH}</arg>
+<doc>Returns the value of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:13:39.130664" elapsed="0.054183"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:41.187103" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:39.185033" elapsed="2.002665"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${selected_to_city}</arg>
+<arg>${TO_CITY}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-09-28T12:13:41.189801" elapsed="0.001143"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:43.192421" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:41.191337" elapsed="2.001189"/>
+</kw>
+<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
+<arg>xpath=${FIND_FLIGHTS_BTN_XPATH}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-28T12:13:43.192729" elapsed="0.012867"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:45.207243" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:43.205779" elapsed="2.002093"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:45.210662" level="INFO">Clicking button 'xpath=/html/body/div[3]/form/div/input'.</msg>
+<arg>xpath=${FIND_FLIGHTS_BTN_XPATH}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:13:45.209083" elapsed="0.757855"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:47.969472" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:45.967169" elapsed="2.003552"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-09-28T12:13:47.974311" level="INFO">${expected_text} = Flights from Boston to Cairo:</msg>
+<var>${expected_text}</var>
+<arg>Flights from ${FROM_CITY} to ${TO_CITY}:</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-09-28T12:13:47.973049" elapsed="0.001339"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:49.976799" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:47.974775" elapsed="2.002373"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:49.990745" level="INFO">Current page contains text 'Flights from Boston to Cairo:'.</msg>
+<arg>${expected_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-28T12:13:49.977833" elapsed="0.013015"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:51.992204" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:49.991069" elapsed="2.002001"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:52.028866" level="INFO">${results_text} = Flights from Boston to Cairo:
+Choose Flight # Airline Departs: Boston Arrives: Cairo Price
+43 Virgin America 1:43 AM 9:45 PM $472.56
+234 United Airlines 7:43 AM 10:45 PM $432.98
+9696 Aer Lingus 5:27 A...</msg>
+<var>${results_text}</var>
+<arg>xpath=${RESULTS_CONTAINER_XPATH}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:13:51.994568" elapsed="0.034356"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:54.032122" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:52.029402" elapsed="2.003370"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${results_text}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-28T12:13:54.033962" elapsed="0.000505"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:56.036814" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:54.034863" elapsed="2.002541"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:56.063091" level="INFO">Element 'xpath=/html/body/div[2]/table/tbody' is displayed.</msg>
+<arg>xpath=${FLIGHT_TABLE_XPATH}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-28T12:13:56.038462" elapsed="0.024781"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:13:58.064268" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:56.063589" elapsed="2.001080"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:13:58.066531" level="INFO">Clicking button 'xpath=/html/body/div[2]/table/tbody/tr[1]/td[1]/input'.</msg>
+<arg>xpath=${SELECT_FLIGHT_XPATH}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:13:58.065464" elapsed="0.361500"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:00.431594" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:13:58.427177" elapsed="2.004709"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:14:00.447573" level="INFO">${airline} = Airline: United</msg>
+<var>${airline}</var>
+<arg>xpath=/html/body/div[2]/p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:14:00.434421" elapsed="0.013185"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:02.448777" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:14:00.447796" elapsed="2.001115"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:14:02.463852" level="INFO">${flight_number} = Flight Number: UA954</msg>
+<var>${flight_number}</var>
+<arg>xpath=/html/body/div[2]/p[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:14:02.449180" elapsed="0.014717"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:04.465938" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:14:02.464105" elapsed="2.002670"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:14:04.491712" level="INFO">${price} = Price: 400</msg>
+<var>${price}</var>
+<arg>xpath=/html/body/div[2]/p[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:14:04.467881" elapsed="0.023902"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:06.493035" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:14:04.492225" elapsed="2.001096"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:14:06.509063" level="INFO">${total_cost} = Total Cost: 914.76</msg>
+<var>${total_cost}</var>
+<arg>xpath=${TOTAL_COST_XPATH}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:14:06.493929" elapsed="0.015172"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:08.509877" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:14:06.509291" elapsed="2.000841"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-28T12:14:08.510933" level="INFO">Selected Flight Details:</msg>
+<arg>Selected Flight Details:</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.510653" elapsed="0.000357"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-28T12:14:08.511535" level="INFO">Airline: Airline: United</msg>
+<arg>Airline: ${airline}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.511290" elapsed="0.000318"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-28T12:14:08.512004" level="INFO">Flight Number: Flight Number: UA954</msg>
+<arg>Flight Number: ${flight_number}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.511807" elapsed="0.000269"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-28T12:14:08.512467" level="INFO">Price: Price: 400</msg>
+<arg>Price: ${price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.512273" elapsed="0.000266"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-28T12:14:08.513245" level="INFO">Total Cost: Total Cost: 914.76</msg>
+<arg>Total Cost: ${total_cost}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.512729" elapsed="0.000597"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${airline}</arg>
+<arg>${airline}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.513697" elapsed="0.000329"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${flight_number}</arg>
+<arg>${flight_number}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.514329" elapsed="0.000208"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${price}</arg>
+<arg>${price}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.514661" elapsed="0.000106"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${total_cost}</arg>
+<arg>${total_cost}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.514889" elapsed="0.000131"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:14:08.515255" level="INFO">Clicking button 'xpath=//*[@id="rememberMe"]'.</msg>
+<arg>xpath=//*[@id="rememberMe"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.515133" elapsed="0.029859"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:10.545879" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:14:08.545173" elapsed="2.001297"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-28T12:14:10.551000" level="INFO">Clicking button 'xpath=/html/body/div[2]/form/div[11]/div/input'.</msg>
+<arg>xpath=/html/body/div[2]/form/div[11]/div/input</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T12:14:10.548046" elapsed="2.907138"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-28T12:14:15.456849" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-28T12:14:13.455382" elapsed="2.002252"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-09-28T11:29:28.868420" elapsed="0.089008"/>
+<status status="PASS" start="2024-09-28T12:14:15.459105" elapsed="0.114223"/>
 </kw>
-<status status="PASS" start="2024-09-28T11:29:25.806872" elapsed="3.150659"/>
+<status status="PASS" start="2024-09-28T12:13:22.621333" elapsed="52.952105"/>
 </test>
-<status status="PASS" start="2024-09-28T11:29:25.711072" elapsed="3.246784"/>
+<status status="PASS" start="2024-09-28T12:13:22.530036" elapsed="53.043730"/>
 </suite>
 <statistics>
 <total>
