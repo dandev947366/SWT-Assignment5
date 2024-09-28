@@ -1,251 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-28T16:13:28.833467" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.10.12 on darwin)" generated="2024-09-28T16:41:24.540435" rpa="false" schemaversion="5">
 <suite id="s1" name="Test" source="/Users/dandev947366/Desktop/HAMK-8-2024/Software-Testing/SWT-Assignment5/test.robot">
-<test id="s1-t1" name="Verify City Selection and Purchase Flight" line="23">
+<test id="s1-t1" name="Test Flight Purchase Flow" line="24">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:28.936736" level="INFO">Opening browser 'Chrome' to base url 'https://blazedemo.com/'.</msg>
+<msg time="2024-09-28T16:41:24.663526" level="INFO">Opening browser 'Chrome' to base url 'https://blazedemo.com/'.</msg>
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-09-28T16:13:28.936585" elapsed="2.258055"/>
+<status status="PASS" start="2024-09-28T16:41:24.663351" elapsed="3.183699"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>Welcome to the Simple Travel Agency!</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-09-28T16:13:31.195356" elapsed="0.779889"/>
+<status status="PASS" start="2024-09-28T16:41:27.847515" elapsed="0.010243"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-28T16:41:27.863441" level="INFO">Current page contains text 'Welcome to the Simple Travel Agency!'.</msg>
+<arg>Welcome to the Simple Travel Agency!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-28T16:41:27.857954" elapsed="0.005579"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:31.976087" level="INFO">Selecting options from selection list 'xpath=//select[@name='fromPort']' by value Boston.</msg>
+<msg time="2024-09-28T16:41:27.864057" level="INFO">Selecting options from selection list 'xpath=//select[@name='fromPort']' by value Boston.</msg>
 <arg>xpath=${DEPARTURE_XPATH}</arg>
 <arg>${FROM_CITY}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2024-09-28T16:13:31.975537" elapsed="0.048083"/>
+<status status="PASS" start="2024-09-28T16:41:27.863720" elapsed="0.045681"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.024054" level="INFO">Selecting options from selection list 'xpath=//select[@name='toPort']' by value Cairo.</msg>
+<msg time="2024-09-28T16:41:27.909827" level="INFO">Selecting options from selection list 'xpath=//select[@name='toPort']' by value Cairo.</msg>
 <arg>xpath=${DESTINATION_XPATH}</arg>
 <arg>${TO_CITY}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.023816" elapsed="0.034856"/>
+<status status="PASS" start="2024-09-28T16:41:27.909602" elapsed="0.036504"/>
 </kw>
 <kw name="Get Selected List Value" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.093221" level="INFO">${selected_from_city} = Boston</msg>
+<msg time="2024-09-28T16:41:27.977458" level="INFO">${selected_from_city} = Boston</msg>
 <var>${selected_from_city}</var>
 <arg>xpath=${DEPARTURE_XPATH}</arg>
 <doc>Returns the value of selected option from selection list ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.058881" elapsed="0.034371"/>
+<status status="PASS" start="2024-09-28T16:41:27.946307" elapsed="0.031184"/>
+</kw>
+<kw name="Get Selected List Value" owner="SeleniumLibrary">
+<msg time="2024-09-28T16:41:28.019383" level="INFO">${selected_to_city} = Cairo</msg>
+<var>${selected_to_city}</var>
+<arg>xpath=${DESTINATION_XPATH}</arg>
+<doc>Returns the value of selected option from selection list ``locator``.</doc>
+<status status="PASS" start="2024-09-28T16:41:27.977692" elapsed="0.041729"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${selected_from_city}</arg>
 <arg>${FROM_CITY}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.093429" elapsed="0.000190"/>
-</kw>
-<kw name="Get Selected List Value" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.133816" level="INFO">${selected_to_city} = Cairo</msg>
-<var>${selected_to_city}</var>
-<arg>xpath=${DESTINATION_XPATH}</arg>
-<doc>Returns the value of selected option from selection list ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.093708" elapsed="0.040139"/>
+<status status="PASS" start="2024-09-28T16:41:28.019645" elapsed="0.000367"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${selected_to_city}</arg>
 <arg>${TO_CITY}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.134021" elapsed="0.000182"/>
+<status status="PASS" start="2024-09-28T16:41:28.020146" elapsed="0.000166"/>
 </kw>
 <kw name="Element Should Be Enabled" owner="SeleniumLibrary">
 <arg>xpath=${FIND_FLIGHTS_BTN_XPATH}</arg>
 <doc>Verifies that element identified by ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.134305" elapsed="0.012169"/>
+<status status="PASS" start="2024-09-28T16:41:28.020499" elapsed="0.012088"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.146944" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<msg time="2024-09-28T16:41:28.032998" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
 <arg>xpath=${FIND_FLIGHTS_BTN_XPATH}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.146703" elapsed="0.468968"/>
+<status status="PASS" start="2024-09-28T16:41:28.032776" elapsed="0.570170"/>
 </kw>
 <kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.644921" level="INFO">Current page contains text 'Flights from Boston to Cairo:'.</msg>
+<msg time="2024-09-28T16:41:28.611371" level="INFO">Current page contains text 'Flights from Boston to Cairo:'.</msg>
 <arg>Flights from ${FROM_CITY} to ${TO_CITY}:</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.616081" elapsed="0.028939"/>
+<status status="PASS" start="2024-09-28T16:41:28.603183" elapsed="0.008261"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.658913" level="INFO">Element 'xpath=//table/tbody' is displayed.</msg>
+<msg time="2024-09-28T16:41:28.622336" level="INFO">Element 'xpath=//table/tbody' is displayed.</msg>
 <arg>xpath=${FLIGHT_TABLE_XPATH}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.645240" elapsed="0.013761"/>
+<status status="PASS" start="2024-09-28T16:41:28.611607" elapsed="0.010810"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:32.659413" level="INFO">Clicking button 'xpath=//table/tbody/tr[1]/td[1]/input'.</msg>
+<msg time="2024-09-28T16:41:28.622788" level="INFO">Clicking button 'xpath=//table/tbody/tr[1]/td[1]/input'.</msg>
 <arg>xpath=${SELECT_FLIGHT_XPATH}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:32.659195" elapsed="0.343929"/>
+<status status="PASS" start="2024-09-28T16:41:28.622597" elapsed="0.387858"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.024590" level="INFO">${airline} = Airline: United</msg>
+<msg time="2024-09-28T16:41:29.033846" level="INFO">${airline} = Airline: United</msg>
 <var>${airline}</var>
 <arg>xpath=//p[1]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.003320" elapsed="0.021300"/>
+<status status="PASS" start="2024-09-28T16:41:29.010648" elapsed="0.023232"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.035008" level="INFO">${flight_number} = Flight Number: UA954</msg>
+<msg time="2024-09-28T16:41:29.044182" level="INFO">${flight_number} = Flight Number: UA954</msg>
 <var>${flight_number}</var>
 <arg>xpath=//p[2]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.024785" elapsed="0.010253"/>
+<status status="PASS" start="2024-09-28T16:41:29.034058" elapsed="0.010157"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.044428" level="INFO">${price} = Price: 400</msg>
+<msg time="2024-09-28T16:41:29.054661" level="INFO">${price} = Price: 400</msg>
 <var>${price}</var>
 <arg>xpath=//p[3]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.035202" elapsed="0.009256"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-09-28T16:13:33.044766" level="INFO">Airline: Airline: United</msg>
-<arg>Airline: ${airline}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.044637" elapsed="0.000158"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-09-28T16:13:33.044970" level="INFO">Flight Number: Flight Number: UA954</msg>
-<arg>Flight Number: ${flight_number}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.044889" elapsed="0.000108"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-09-28T16:13:33.045141" level="INFO">Price: Price: 400</msg>
-<arg>Price: ${price}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.045068" elapsed="0.000097"/>
+<status status="PASS" start="2024-09-28T16:41:29.044393" elapsed="0.010301"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${airline}</arg>
 <arg>${airline}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.045234" elapsed="0.000097"/>
+<status status="PASS" start="2024-09-28T16:41:29.054939" elapsed="0.000182"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${flight_number}</arg>
 <arg>${flight_number}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.045402" elapsed="0.000092"/>
+<status status="PASS" start="2024-09-28T16:41:29.055244" elapsed="0.000110"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${price}</arg>
 <arg>${price}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.045564" elapsed="0.000087"/>
+<status status="PASS" start="2024-09-28T16:41:29.055441" elapsed="0.000107"/>
 </kw>
 <kw name="Input Card Details">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.046137" level="INFO">Typing text 'Dan Le' into text field 'xpath=//*[@id="inputName"]'.</msg>
+<msg time="2024-09-28T16:41:29.056226" level="INFO">Typing text 'Dan Le' into text field 'xpath=//*[@id="inputName"]'.</msg>
 <arg>xpath=//*[@id="inputName"]</arg>
 <arg>Dan Le</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.046026" elapsed="0.111240"/>
+<status status="PASS" start="2024-09-28T16:41:29.056068" elapsed="0.100690"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.157553" level="INFO">Typing text '123 Helsinki, Finland 00400' into text field 'xpath=//*[@id="address"]'.</msg>
+<msg time="2024-09-28T16:41:29.157231" level="INFO">Typing text '123 Helsinki, Finland 00400' into text field 'xpath=//*[@id="address"]'.</msg>
 <arg>xpath=//*[@id="address"]</arg>
 <arg>123 Helsinki, Finland 00400</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.157411" elapsed="0.051274"/>
+<status status="PASS" start="2024-09-28T16:41:29.157051" elapsed="0.051330"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.209336" level="INFO">Typing text 'Helsinki' into text field 'xpath=//*[@id="city"]'.</msg>
+<msg time="2024-09-28T16:41:29.208675" level="INFO">Typing text 'Helsinki' into text field 'xpath=//*[@id="city"]'.</msg>
 <arg>xpath=//*[@id="city"]</arg>
 <arg>Helsinki</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.209083" elapsed="0.044815"/>
+<status status="PASS" start="2024-09-28T16:41:29.208529" elapsed="0.045398"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.254188" level="INFO">Typing text 'Uusimaa' into text field 'xpath=//*[@id="state"]'.</msg>
+<msg time="2024-09-28T16:41:29.254368" level="INFO">Typing text 'Uusimaa' into text field 'xpath=//*[@id="state"]'.</msg>
 <arg>xpath=//*[@id="state"]</arg>
 <arg>Uusimaa</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.254045" elapsed="0.039758"/>
+<status status="PASS" start="2024-09-28T16:41:29.254096" elapsed="0.040956"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.294176" level="INFO">Typing text '00400' into text field 'xpath=//*[@id="zipCode"]'.</msg>
+<msg time="2024-09-28T16:41:29.295376" level="INFO">Typing text '00400' into text field 'xpath=//*[@id="zipCode"]'.</msg>
 <arg>xpath=//*[@id="zipCode"]</arg>
 <arg>00400</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.293965" elapsed="0.039432"/>
+<status status="PASS" start="2024-09-28T16:41:29.295216" elapsed="0.038268"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.333717" level="INFO">Typing text '123456789' into text field 'xpath=//*[@id="creditCardNumber"]'.</msg>
+<msg time="2024-09-28T16:41:29.333900" level="INFO">Typing text '123456789' into text field 'xpath=//*[@id="creditCardNumber"]'.</msg>
 <arg>xpath=//*[@id="creditCardNumber"]</arg>
 <arg>123456789</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.333557" elapsed="0.042668"/>
+<status status="PASS" start="2024-09-28T16:41:29.333710" elapsed="0.039116"/>
 </kw>
 <kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.376524" level="INFO">Selecting options from selection list 'xpath=//*[@id="cardType"]' by value dinersclub.</msg>
+<msg time="2024-09-28T16:41:29.373125" level="INFO">Selecting options from selection list 'xpath=//*[@id="cardType"]' by value dinersclub.</msg>
 <arg>xpath=//*[@id="cardType"]</arg>
 <arg>dinersclub</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.376369" elapsed="0.034123"/>
+<status status="PASS" start="2024-09-28T16:41:29.372976" elapsed="0.035705"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.410804" level="INFO">Typing text '11' into text field 'xpath=//*[@id="creditCardMonth"]'.</msg>
+<msg time="2024-09-28T16:41:29.409134" level="INFO">Typing text '11' into text field 'xpath=//*[@id="creditCardMonth"]'.</msg>
 <arg>xpath=//*[@id="creditCardMonth"]</arg>
 <arg>${CARD_MONTH}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.410632" elapsed="0.037577"/>
+<status status="PASS" start="2024-09-28T16:41:29.408889" elapsed="0.040469"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.448564" level="INFO">Typing text '2018' into text field 'xpath=//*[@id="creditCardYear"]'.</msg>
+<msg time="2024-09-28T16:41:29.449844" level="INFO">Typing text '2018' into text field 'xpath=//*[@id="creditCardYear"]'.</msg>
 <arg>xpath=//*[@id="creditCardYear"]</arg>
 <arg>${CARD_YEAR}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.448366" elapsed="0.037996"/>
+<status status="PASS" start="2024-09-28T16:41:29.449623" elapsed="0.040800"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.486710" level="INFO">Typing text 'Dan Le' into text field 'xpath=//*[@id="nameOnCard"]'.</msg>
+<msg time="2024-09-28T16:41:29.490775" level="INFO">Typing text 'Dan Le' into text field 'xpath=//*[@id="nameOnCard"]'.</msg>
 <arg>xpath=//*[@id="nameOnCard"]</arg>
 <arg>Dan Le</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.486534" elapsed="0.035408"/>
+<status status="PASS" start="2024-09-28T16:41:29.490594" elapsed="0.039842"/>
 </kw>
-<status status="PASS" start="2024-09-28T16:13:33.045848" elapsed="0.476187"/>
+<status status="PASS" start="2024-09-28T16:41:29.055819" elapsed="0.474774"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-28T16:41:29.531001" level="INFO">Clicking element 'xpath=//input[@id='rememberMe']'.</msg>
+<arg>xpath=//input[@id='rememberMe']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T16:41:29.530813" elapsed="0.026685"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.522318" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
+<msg time="2024-09-28T16:41:29.557967" level="INFO">Clicking button 'xpath=//input[@type='submit']'.</msg>
 <arg>xpath=//input[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.522173" elapsed="0.326505"/>
+<status status="PASS" start="2024-09-28T16:41:29.557767" elapsed="0.398105"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-28T16:41:29.965115" level="INFO">Current page contains text 'Thank you for your purchase today!'.</msg>
+<arg>Thank you for your purchase today!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-28T16:41:29.956088" elapsed="0.009110"/>
 </kw>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-09-28T16:13:33.860703" level="INFO">${expiration_time} = 11 /2018</msg>
+<msg time="2024-09-28T16:41:29.975192" level="INFO">${expiration_time} = 11 /2018</msg>
 <var>${expiration_time}</var>
 <arg>xpath=//table/tbody/tr[5]/td[2]</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.848859" elapsed="0.011873"/>
+<status status="PASS" start="2024-09-28T16:41:29.965388" elapsed="0.009836"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-09-28T16:13:33.861057" level="INFO">${expected_expiration} = 11 /2018</msg>
+<msg time="2024-09-28T16:41:29.975616" level="INFO">${expected_expiration} = 11 /2018</msg>
 <var>${expected_expiration}</var>
 <arg>${CARD_MONTH} /${CARD_YEAR}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.860903" elapsed="0.000171"/>
+<status status="PASS" start="2024-09-28T16:41:29.975446" elapsed="0.000187"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${expiration_time}</arg>
 <arg>${expected_expiration}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.861159" elapsed="0.000133"/>
+<status status="PASS" start="2024-09-28T16:41:29.975724" elapsed="0.000138"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-28T16:41:29.986525" level="INFO">${confirmation_total_price} = Sat, 28 Sep 2024 13:41:29 +0000</msg>
+<var>${confirmation_total_price}</var>
+<arg>xpath=//table/tbody/tr[7]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-28T16:41:29.975952" elapsed="0.010609"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-09-28T16:13:33.861432" elapsed="0.084463"/>
+<status status="PASS" start="2024-09-28T16:41:29.986808" elapsed="0.084934"/>
 </kw>
-<status status="PASS" start="2024-09-28T16:13:28.935922" elapsed="5.010087"/>
+<status status="PASS" start="2024-09-28T16:41:24.662716" elapsed="5.409199"/>
 </test>
-<status status="PASS" start="2024-09-28T16:13:28.834797" elapsed="5.111558"/>
+<status status="PASS" start="2024-09-28T16:41:24.542497" elapsed="5.530303"/>
 </suite>
 <statistics>
 <total>
